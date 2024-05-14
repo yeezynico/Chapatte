@@ -1,0 +1,70 @@
+<style> 
+
+
+.img-show {
+  border-radius: 50px;
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; 
+}
+
+
+.img-show img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+
+.card {
+  margin-top: 20px; 
+  padding: 20px; 
+  margin-right: 10px; 
+  height: 200px;
+  width: 300px;
+  display: flex; 
+  justify-content: center; 
+  margin: 0 auto; 
+  background-color: #ff70b759;
+}
+
+
+.button_center {
+  margin-right: 10px; 
+}
+
+.d-flex {
+  justify-content: center;
+  
+}
+
+</style>
+
+
+
+
+<main class="container mb-5 mt-5">
+  <div class="img-show mr-5">
+    <%= image_tag @item.image_url, height: "500px;" %>
+  </div>
+  <br>
+  <br>
+  
+
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Title : </strong><%= @item.title %></li>
+      <li class="list-group-item"><strong>Description : </strong><%= @item.description %></li>
+      <li class="list-group-item"><strong>Prix : </strong><%= @item.price %> €</li>
+    </ul>
+  </div>
+
+
+  <div class="d-flex justify-content-left">
+  <%= link_to "Modify", edit_admin_item_path(@item.id), class: "btn btn-info button_center mr-2 mt-3" %>
+  <%= form_with(model: [:admin, @item], local: true, url: admin_item_path, method: "delete") do |form| %>
+    <%= form.submit "Delete", class: "btn btn-success mt-3" %>
+  <% end %>
+</div>

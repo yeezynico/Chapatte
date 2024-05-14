@@ -1,0 +1,14 @@
+Hello <%= @user.first_name %>, this is you order !
+==========================================================
+
+You bought items on <strong>Chatpatte</strong> by using this email : <%= @user.email %>.
+
+Here are the items :
+
+<% @order.items.each do |item| %> 
+     <%= item.image_url %>
+<% end %>
+
+To access your client space, connect here : <%= @url %>.
+
+See you soon on Chatpatte !

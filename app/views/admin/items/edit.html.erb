@@ -1,0 +1,9 @@
+<main class="container mt-5">
+  <div class="card my-3 text-center w-50 card-center">
+      <h3 class="action-banner card-header">Modify</h3>
+        <%= render 'form', item: @item %>
+      <div class="text-center mb-3">
+        <%= link_to 'Home', admin_items_path, class:"btn btn-outline-secondary" %>
+      </div>
+  </div>  
+</main>

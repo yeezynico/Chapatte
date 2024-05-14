@@ -1,0 +1,123 @@
+
+  <style>
+  .rounded-circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100% ; 
+  }
+  
+  .rounded-circle {
+    width: 200px;
+    height: 200px;
+  }
+  
+  h1 {
+    font-family: 'Catboo', sans-serif;
+    color: #58111A;
+  }
+  @font-face {
+  font-family: 'Catboo';
+  src: url('Catboo.ttf') format('truetype');
+}
+
+
+.card {
+  background-color: #ff70b759 !important;
+  border: solid #FF70B8 2px;
+}
+
+
+.card-text {
+  color: #58111A !important;
+}
+
+
+.text-danger {
+  color: #ff0000; 
+}
+
+  
+</style>
+
+<div class="rounded-circle-container">
+  <div class="rounded-circle overflow-hidden border border-dark d-inline-block">
+    <%= image_tag("cat.jpeg", class: "img-fluid") %>
+  </div>
+</div>
+<br>
+
+<center><h1>Your profile</h1></center>
+
+<center><p> <strong> Email:</strong> <%= @user.email %> </p></center>
+
+<% if current_user.is_admin %>
+ <center> <%= link_to 'My items', admin_items_path, class:"btn btn-outline-warning" %></center>
+<% end %>
+<br>
+
+
+<center><%= link_to 'Edit profile', edit_user_path, class:"btn btn-outline-warning" %></center>
+
+<br> 
+<br>
+<center><h2>Dashboard</h2></center>
+<div class="container">
+  <div class="card my-3 mx-auto text-center" style="max-width: 600px;">
+   
+
+    <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <% if Order.all.length == 0 %>
+        <p> No order </p>
+      <% else %>
+        <% Order.all.each do |order| %>
+          <div class="card m-1">
+            <div class="card-body">
+              <p class="card-text">Order of : <%= order.created_at.strftime("%d.%m.%Y à %H:%M") %> de <%= order.user.email%></p>
+              <p class="card-text"><small class="text-muted">Number of items : <%= order.items.length %></small></p>
+              <p class="card-text"><small class="text-muted">Total : <%= order.total %> €</small></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="card m-2">
+      <div class="card-body">
+        <% if Order.all.length == 0 %>
+          <h5 class="text-danger"><%= Order.all.length %> made orders.</h5>
+        <% elsif Order.all.length == 1%>
+         <h5 class="text-danger"><%= Order.all.length %> order. Total : <%= Order.total_commande %> $</h5>
+        <% else %>
+          <h5 class="text-danger"><%= Order.all.length %> orders. Total : <%= Order.total_commande %> $</h5>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <a class="font-weight-bold my-4 mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="dashboard-text">
+            All users
+          </button>
+        </a>
+      </div>
+
+      <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <% User.all.each do |user| %>
+          <div class="card m-1">
+            <div class="card-body">
+              <p class="card-text">Mail : <%= user.email %> created <%= user.created_at.strftime("%d.%m.%Y à %H:%M") %></p>
+              <p class="card-text"><small class="text-muted">Number of orders : <%= user.orders.length %></small></p>
+              <p class="card-text"><small class="text-muted">Total spent : <span class="text-danger"><%= user.orders.total_commande %> $</span></small></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

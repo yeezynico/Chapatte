@@ -1,0 +1,14 @@
+Hello <%= @admin.first_name %>, a new purchase has been made on your website !
+==========================================================
+
+Here the order :
+
+<% @order.items.each do |item| %> 
+     <%= item.image_url %>
+<% end %>
+
+<%= @user.email %> ordered <%= @cart.items.length %> item(s) !
+For an amount of <%= @cart.items.all.sum(&:price) %> $
+
+To access dashboard, connect here : <%= @url %>
+

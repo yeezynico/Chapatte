@@ -1,0 +1,55 @@
+<style> 
+
+.container {
+  margin-top: 20px;
+ 
+}
+
+.table td {
+  
+ text-align: left;
+  background-color:  #ff70b759;
+  border-color:  #ff70b759;
+  border-radius: 15px;
+
+  .text-center {
+  text-align: center;
+ }
+
+ 
+.form-control {
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  }
+
+
+.btnn-primary {
+  background-color:  #8AB9F1;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+ }
+
+
+
+</style>
+
+
+
+<div class="container">
+  <table class="table">
+   <td class="form-group">
+          <%= form_with(model: user, local: true, method: :put) do |form| %>
+            <%= form.email_field :email, class:"form-control", placeholder:"Email" %>
+             <br>
+             <br>
+
+            <div class="text-center">
+              <%= form.submit "Modifier", class: "btnn btnn-primary" %>
+            </div>
+          <% end %>
+        </td>
+     </table>
+</div>

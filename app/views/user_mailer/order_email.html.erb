@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.first_name %>, here your order on Chatpatte !</h1>
+    <p>
+    You bought items on <strong>Chatpatte</strong> by using this email : <%= @user.email %>.
+    </p>
+
+    <h2>Here are the items :</h2>
+
+    <% @user.cart.cart_items.each do |cart_item| %>
+      <img src="<%= cart_item.item.image_url %>" alt="" style="height: 300px">
+    <% end %>
+
+    
+
+    <p>
+      To access your client space, connect here : <a href="<%= @url %>"><%= @url %></a> .
+    </p>
+    <p> See you soon on Chatpatte !</p>
+  </body>
+</html>

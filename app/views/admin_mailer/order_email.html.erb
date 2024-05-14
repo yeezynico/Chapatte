@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @admin.first_name %>, a new purchase has been made on your website !</h1>
+
+    <h2>Here the order : </h2>
+
+    <p><%= @user.email %> ordered <%= @cart.items.length %> item(s) !</p> 
+    <p>For an amount of <%= @cart.items.all.sum(&:price) %> </p>
+
+    <p>
+      To access dashboard, connect here : <a href="<%= @url %>"><%= @url %></a> .
+    </p>
+  </body>
+</html>

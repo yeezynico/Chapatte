@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <section class="hero-index">
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-lg-6">
+            <img class="w-100 shadow" src="https://plus.unsplash.com/premium_photo-1707353402057-c95bdddb5b39?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5 mt-4">
+                <h1 class="display-4">WELCOME</h1>
+                <p class="lead">Dive into an unbelievable experience by purchasing cat pictures on our website.</p>
+                <p class="lead"> Our curated collection captures the essence of feline charm, turning each image into a visual masterpiece.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards-index">
+      <h1 class="h1-index display-4"> OUR ITEMS </h1>
+
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <% @items.each do |item| %>
+          <div class="col-index">
+            <div class="card-index h-100">
+              <img src="<%= item.image_url %>" class="card-img-top" alt="Cat">
+              <%= link_to item_path(item, image_url:'') do %>
+                 <button class="btn-index">View</button>
+              <% end %>
+            </div> 
+          </div>
+        <% end %>
+      </div>
+    </section>
+
+    <section class="comments-index">
+      <h1 class="h1-index display-4"> OUR CUSTOMERS CAT-ISFACTION </h1> <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="shadow-index">
+            <div class="col-sm-12 col-index">
+              <div class="col-sm-2">
+                <img src="https://plus.unsplash.com/premium_photo-1677252438450-b779a923b0f6?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-circle" width="60px">
+              </div>
+              <div class="col-sm-8 sm-index">
+                <h4>First Name Last Name</h4>
+                <p>Comment content</p>
+              </div>
+              <div class="col-sm-2 star-index">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <hr class="hr-index">
+
+            <div class="col-sm-12 col-index">
+              <div class="col-sm-2">
+                <img src="https://plus.unsplash.com/premium_photo-1677252438450-b779a923b0f6?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-circle" width="60px">
+              </div>
+              <div class="col-sm-8 sm-index">
+                <h4>First Name Last Name</h4>
+                <p>Comment content</p>
+              </div>
+              <div class="col-sm-2 star-index">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <hr class="hr-index">
+
+            <div class="col-sm-12 col-index">
+              <div class="col-sm-2">
+                <img src="https://plus.unsplash.com/premium_photo-1677252438450-b779a923b0f6?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-circle" width="60px">
+              </div>
+              <div class="col-sm-8 sm-index">
+                <h4>First Name Last Name</h4>
+                <p>Comment content</p>
+              </div>
+              <div class="col-sm-2 star-index">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+

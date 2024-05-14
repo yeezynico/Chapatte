@@ -1,0 +1,67 @@
+<style> 
+
+.container {
+  width: 100%; 
+  text-align: center;
+}
+
+.rounded-image {
+  display: inline-block; 
+}
+
+.rounded-image:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease; 
+}
+
+
+.rounded-image img {
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+h1, h2 {
+ 
+  text-align: center;
+}
+
+h2.name {
+
+  text-align: center;
+}
+
+</style> 
+
+<div class="container">
+  <h1>La Team</h1>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="rounded-image" id="">
+        <%= image_tag "", class: "card-img-top", alt: "" %>
+        <p>Anelise</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="rounded-image">
+        <%= image_tag "", class: "card-img-top", alt: "" %>
+        <p>Bénedicte</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="rounded-image">
+        <%= image_tag "", class: "card-img-top", alt: "" %>
+        <p>Nicolas</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="rounded-image">
+        <%= image_tag "", class: "card-img-top", alt: "" %>
+        <p>Nicolas</p>
+      </div>
+    </div>
+  </div>
+</div>
+

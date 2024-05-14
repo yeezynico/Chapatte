@@ -1,0 +1,61 @@
+<h1 class="h1_center"> <%= @item.title %> </h1>
+
+<div class="card_show">
+    <%= image_tag @item.image_url, alt: @item.title, class: "img-show" %>
+        <div class="infos-show">
+            <div class="border_show">
+                <p>
+                    <%= @item.description %>
+                </p>
+            </div>
+
+            <div class="price_show">
+                <p>
+                   <%= @item.price %> $ 
+                </p>
+
+                <p>
+                   ID - <%= @item.id %>
+                </p>
+            </div> <br>
+
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choose quantity</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select> <br>
+            
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choose size</option>
+              <option value="1">A3</option>
+              <option value="2">A4</option>
+              <option value="3">A5</option>
+            </select> <br>
+
+            <div class="truck">
+              <i class="fa-solid fa-truck-fast"></i>
+              <p> Delivery in 1 to 3 working days </p>
+            </div>
+
+            <div class="box">
+              <i class="fa-solid fa-box"></i>
+              <p> Free delivery from 70$ </p>
+            </div>
+
+            <div class="btn-show">
+              <% if user_signed_in? %>
+                <%= button_to "Add to cart", cart_items_path, method: :post, params: { item: @item }, class: "btn_bot" %>
+              <% else %>
+                <%= link_to "Login to add", new_user_session_path, class: "btn_bot" %>
+              <% end %>
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart"></i>
+            </div>
+</div>          
+          
+
+        
+</div>
+
+
